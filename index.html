@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Music Workbench | MIDI Track Player</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="hero">
+      <p class="eyebrow">GitHub Pages MIDI Lab</p>
+      <h1>AI Music Workbench</h1>
+      <p class="subtitle">Load a MIDI file, map each track to an instrument, then play everything in sync.</p>
+    </header>
+
+    <section class="panel">
+      <label for="midi-select">Choose a MIDI file</label>
+      <div class="row">
+        <select id="midi-select" aria-label="Choose a MIDI file" disabled>
+          <option value="">Loading MIDI list...</option>
+        </select>
+        <button id="load-midi-btn" type="button" disabled>Load MIDI</button>
+      </div>
+      <p id="manifest-hint" class="hint">Reading <code>output/midi-index.json</code>...</p>
+    </section>
+
+    <section id="track-section" class="panel hidden" aria-live="polite">
+      <div class="panel-heading">
+        <h2>Track Instrument Assignment</h2>
+        <p id="track-summary" class="hint"></p>
+      </div>
+      <div id="track-list" class="track-list"></div>
+    </section>
+
+    <section class="panel controls">
+      <button id="play-btn" type="button" disabled>Play</button>
+      <button id="stop-btn" type="button" disabled>Stop</button>
+      <p id="status-text" class="status" role="status" aria-live="polite">Waiting for MIDI manifest...</p>
+    </section>
+  </main>
+
+  <noscript>
+    <p class="noscript-warning">This app requires JavaScript to load MIDI files and play audio.</p>
+  </noscript>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
